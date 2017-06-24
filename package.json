@@ -1,0 +1,28 @@
+{
+  "name": "j2s.cardgen",
+  "version": "0.0.1",
+  "description": "Cards generator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnauldvm/j2s.cardgen.git"
+  },
+  "keywords": [
+    "boardgame",
+    "cards",
+    "electron"
+  ],
+  "author": "Arnauld Van Muysewinkel",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/arnauldvm/j2s.cardgen/issues"
+  },
+  "homepage": "https://github.com/arnauldvm/j2s.cardgen#readme",
+  "devDependencies": {
+    "electron": "^1.6.10"
+  }
+}
