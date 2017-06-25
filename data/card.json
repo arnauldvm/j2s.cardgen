@@ -3,6 +3,6 @@
   "positions": "36",
   "bonus": { "att": 2, "def": -1, "sh1": 1, "sh2": -2 },
   "specials": [ "Coup de glace", "Balon givré" ],
-  "picture": "",
+  "picture": "./assets/img/man-31607_640.png",
   "description": "Ce joueur venu du Nord n'a pas froid aux yeux !"
 }

@@ -52,5 +52,23 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.fillText(cardDescription.name, 2*UTIL_WIDTH/3, UTIL_HEIGHT/2);
+
+  // Picture
+  // (using promises to avoid context being changed before actually draing the image (because of asyng loading))
+  var img = new Image();
+  const imgLoaded = new Promise((resolve, reject) => {
+    img.addEventListener('load', resolve, false);
+  });
+  img.src = cardDescription.picture;
+  var imgDrawn = imgLoaded.then(() => {
+    ctx.save();
+    ctx.translate(0, UTIL_HEIGHT/2);
+    ctx.drawImage(img, 0, 0, UTIL_WIDTH/3, UTIL_HEIGHT/2); // TODO: should preserve size ratio
+    ctx.strokeRect(0, 0, UTIL_WIDTH/3, UTIL_HEIGHT/2);
+    ctx.restore();
+  });
+
+  imgDrawn.then(() => {
   ctx.restore();
+  })
 }
