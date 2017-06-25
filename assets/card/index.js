@@ -36,6 +36,8 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
 const MARGIN = 20;
 const GRID_SIZE = 40;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
+  const UTIL_WIDTH = ctx.canvas.width - 2*MARGIN;
+  const UTIL_HEIGHT = ctx.canvas.height - 2*MARGIN;
   ctx.save();
   ctx.translate(MARGIN, MARGIN);
 
@@ -45,5 +47,10 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   drawGrid(ctx, cardDescription.positions);
   ctx.restore();
 
+  // Name
+  ctx.font = '18px Times New Roman bold';
+  ctx.fillStyle = 'Black';
+  ctx.textAlign = 'center';
+  ctx.fillText(cardDescription.name, 2*UTIL_WIDTH/3, UTIL_HEIGHT/2);
   ctx.restore();
 }
