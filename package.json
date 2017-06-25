@@ -24,5 +24,6 @@
   "homepage": "https://github.com/arnauldvm/j2s.cardgen#readme",
   "devDependencies": {
     "electron": "^1.6.10"
-  }
+  },
+  "eslintConfig": { }
 }
