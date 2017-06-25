@@ -33,7 +33,7 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
   ctx.restore();
 }
 
-const MARGIN = 10;
+const MARGIN = 20;
 const GRID_SIZE = 40;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
   ctx.save();
