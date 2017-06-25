@@ -38,7 +38,12 @@ const GRID_SIZE = 40;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
   ctx.save();
   ctx.translate(MARGIN, MARGIN);
+
+  // Positions grid
+  ctx.save();
   ctx.scale(GRID_SIZE, GRID_SIZE); ctx.lineWidth = ctx.lineWidth / GRID_SIZE;
   drawGrid(ctx, cardDescription.positions);
+  ctx.restore();
+
   ctx.restore();
 }
