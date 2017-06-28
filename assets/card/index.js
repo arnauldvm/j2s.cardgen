@@ -77,15 +77,22 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   drawGrid(ctx, cardDescription.positions);
   ctx.restore();
 
+  // Low half
+  ctx.translate(0, UTIL_HEIGHT/2);
+  
+  // Picture
+  drawImage(ctx, cardDescription.picture, UTIL_WIDTH/3, UTIL_HEIGHT/2, true);
+
+  // Low Right
+  ctx.translate(UTIL_WIDTH/3, 0);
+
   // Name
   ctx.font = 'bold 18px Times New Roman serif';
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
-  ctx.fillText(cardDescription.name, 2*UTIL_WIDTH/3, UTIL_HEIGHT/2);
+  ctx.textBaseline = 'top';
+  ctx.fillText(cardDescription.name, UTIL_WIDTH/3, 0);
 
-  // Picture
-  ctx.translate(0, UTIL_HEIGHT/2);
-  drawImage(ctx, cardDescription.picture, UTIL_WIDTH/3, UTIL_HEIGHT/2, true);
 
   ctx.restore();
 }
