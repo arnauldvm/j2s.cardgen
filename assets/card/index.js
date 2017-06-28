@@ -101,6 +101,20 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.textBaseline = 'top';
   ctx.fillText(cardDescription.name, RIGHT_WIDTH/2, 0);
 
+  // Description
+  const descriptionLines = cardDescription.description.split('\n');
+  console.log("descriptionLines", descriptionLines, "length", descriptionLines.length);
+  ctx.font = 'italic 12px Helvetica sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'bottom';
+  let h = LOW_HEIGHT;
+  for (let idx = descriptionLines.length-1; idx>=0; idx--) {
+    console.log("idx", idx, "h", h);
+    const curLine = descriptionLines[idx];
+    ctx.fillText(curLine, 0, h);
+    const textMeasure = ctx.measureText(curLine);
+    h -= textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent;
+  }
 
   ctx.restore();
 }
