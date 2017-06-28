@@ -15,8 +15,8 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
   ctx.restore();
 
   ctx.fillStyle = GRID_COLOR;
-  var pos, x, y;
-  for (var idx in positions) {
+  let pos, x, y;
+  for (let idx in positions) {
     pos = positions[idx]-1;
     if (pos>=0) {
       x = pos%3;
@@ -55,12 +55,12 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
 
   // Picture
   // (using promises to avoid context being changed before actually draing the image (because of asyng loading))
-  var img = new Image();
+  let img = new Image();
   const imgLoaded = new Promise((resolve, reject) => {
     img.addEventListener('load', resolve, false);
   });
   img.src = cardDescription.picture;
-  var imgDrawn = imgLoaded.then(() => {
+  let imgDrawn = imgLoaded.then(() => {
     ctx.save();
     ctx.translate(0, UTIL_HEIGHT/2);
     ctx.drawImage(img, 0, 0, UTIL_WIDTH/3, UTIL_HEIGHT/2); // TODO: should preserve size ratio
