@@ -109,6 +109,17 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
   ctx.fillText(cardDescription.name, RIGHT_WIDTH/2, h);
+  h += textHeight(ctx, cardDescription.name);
+  h += textHeight(ctx, "")/2;
+
+  // Specials
+  ctx.font =  '14px Times New Roman serif';
+  ctx.textAlign = 'left';
+  for (let idx = 0; idx<cardDescription.specials.length; idx++) {
+    const special = cardDescription.specials[idx];
+    ctx.fillText("• " + special, 0, h);
+    h += textHeight(ctx, special);
+  }
 
   // Description
   const descriptionLines = cardDescription.description.split('\n');
