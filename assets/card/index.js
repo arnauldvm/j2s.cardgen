@@ -33,22 +33,19 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
   ctx.restore();
 }
 
+const context = require('../context');
+
 const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgUrl, w, h, /* boolean */ hasBorder) {
-  // (saving the context transform matrix and stroke style,
-  //  since it will likely have changed by the time the image is actually drawn
+  // (saving the context, since it will likely have changed by the time the image is actually drawn
   //  (because of async loading))
-  const curTransform = ctx.currentTransform;
-  const curStrokeStyle = ctx.strokeStyle;
+  const curContext = new context.SavedContext(ctx);
   const img = new Image();
   img.addEventListener('load', function() {
-    const saveTransform = ctx.currentTransform;
-    const saveStrokeStyle = ctx.strokeStyle;
-    ctx.currentTransform = curTransform;
-    ctx.strokeStyle = curStrokeStyle;
+    const saveContext = new context.SavedContext(ctx);
+    curContext.restoreIn(ctx);
     ctx.drawImage(img, 0, 0, w, h); // TODO: should preserve size ratio
     if (hasBorder) ctx.strokeRect(0, 0, w, h);
-    ctx.currentTransform = saveTransform;
-    ctx.strokeStyle = saveStrokeStyle;
+    saveContext.restoreIn(ctx);
   }, false);
   img.src = cardDescription.picture;
 }
