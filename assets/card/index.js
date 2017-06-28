@@ -4,7 +4,7 @@ const GRID_COLOR = '#000';
 const GRID_PATH = new Path2D("M0 0 H3 V3 H0 Z M1 0 V3 M2 0 V3 M0 1 H3 M0 2 H3 M0");
 const SQUARE_PATH = new Path2D("M0 0 H1 V1 H0 Z");
 const X_KEEPER = 1, Y_KEEPER = 3;
-const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9] */ positions) {
+const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9] */ positions) /* number */ { // returns grid height ratio
   ctx.save();
   ctx.scale(1/3, 1/3); ctx.lineWidth = ctx.lineWidth * 3;
   ctx.strokeStyle = GRID_COLOR;
@@ -31,6 +31,7 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
     ctx.restore();
   }
   ctx.restore();
+  return 4/3;
 }
 
 const context = require('../context');
@@ -75,11 +76,11 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   // Positions grid
   ctx.save();
   ctx.scale(GRID_SIZE, GRID_SIZE); ctx.lineWidth = ctx.lineWidth / GRID_SIZE;
-  drawGrid(ctx, cardDescription.positions);
+  const gridHeightRatio = drawGrid(ctx, cardDescription.positions);
   ctx.restore();
 
   // Low half
-  const LOW_Y = UTIL_HEIGHT/2;
+  const LOW_Y = GRID_SIZE*gridHeightRatio + INNER_MARGIN;
   ctx.translate(0, LOW_Y);
   const LOW_HEIGHT = UTIL_HEIGHT - LOW_Y;
   
