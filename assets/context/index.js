@@ -8,7 +8,7 @@ const SavedContext = function (/* CanvasRenderingContext2D */ ctx) {
         if (attrname === 'canvas') continue;
         if (typeof ctx[attrname] === 'function') continue;
         if (typeof ctx[attrname] === 'undefined') continue;
-        console.log(attrname, ctx[attrname]);
+        //console.log(attrname, ctx[attrname]);
         this[attrname] = ctx[attrname];
     }
 }
