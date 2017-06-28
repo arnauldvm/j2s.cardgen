@@ -78,20 +78,27 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.restore();
 
   // Low half
-  ctx.translate(0, UTIL_HEIGHT/2);
+  const LOW_Y = UTIL_HEIGHT/2;
+  ctx.translate(0, LOW_Y);
+  const LOW_HEIGHT = UTIL_HEIGHT - LOW_Y;
   
+  const LEFT_WIDTH = UTIL_WIDTH/3;
+  //const LEFT_WIDTH = LOW_HEIGHT;
+  const RIGHT_X = LEFT_WIDTH;
+  const RIGHT_WIDTH = UTIL_WIDTH - RIGHT_X;
+
   // Picture
-  drawImage(ctx, cardDescription.picture, UTIL_WIDTH/3, UTIL_HEIGHT/2, true);
+  drawImage(ctx, cardDescription.picture, LEFT_WIDTH, LOW_HEIGHT, true);
 
   // Low Right
-  ctx.translate(UTIL_WIDTH/3, 0);
+  ctx.translate(RIGHT_X, 0);
 
   // Name
   ctx.font = 'bold 18px Times New Roman serif';
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
-  ctx.fillText(cardDescription.name, UTIL_WIDTH/3, 0);
+  ctx.fillText(cardDescription.name, RIGHT_WIDTH/2, 0);
 
 
   ctx.restore();
