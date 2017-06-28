@@ -110,7 +110,6 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
 
   // Description
   const descriptionLines = cardDescription.description.split('\n');
-  console.log("descriptionLines", descriptionLines, "length", descriptionLines.length);
   ctx.font = 'italic 12px Helvetica sans-serif';
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
