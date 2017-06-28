@@ -101,19 +101,21 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   // Low Right
   ctx.translate(RIGHT_X, 0);
 
+  let h = 0;
+
   // Name
   ctx.font = 'bold 18px Times New Roman serif';
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
-  ctx.fillText(cardDescription.name, RIGHT_WIDTH/2, 0);
+  ctx.fillText(cardDescription.name, RIGHT_WIDTH/2, h);
 
   // Description
   const descriptionLines = cardDescription.description.split('\n');
   ctx.font = 'italic 12px Helvetica sans-serif';
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
-  let h = LOW_HEIGHT;
+  h = LOW_HEIGHT;
   for (let idx = descriptionLines.length-1; idx>=0; idx--) {
     console.log("idx", idx, "h", h);
     const curLine = descriptionLines[idx];
