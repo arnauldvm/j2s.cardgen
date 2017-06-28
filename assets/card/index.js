@@ -64,6 +64,12 @@ const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgU
   img.src = cardDescription.picture;
 }
 
+const textHeight = function(/* CanvasRenderingContext2D */ ctx, /* string */ text) {
+  const textMeasure = ctx.measureText(text);
+  console.log("textMeasure", textMeasure);
+  return (textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent);  
+}
+
 const MARGIN = 20;
 const INNER_MARGIN = 10;
 const GRID_SIZE = 40;
@@ -113,8 +119,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
     console.log("idx", idx, "h", h);
     const curLine = descriptionLines[idx];
     ctx.fillText(curLine, 0, h);
-    const textMeasure = ctx.measureText(curLine);
-    h -= textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent;
+    h -= textHeight(ctx, curLine)
   }
 
   ctx.restore();
