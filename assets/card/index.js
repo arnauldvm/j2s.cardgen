@@ -64,6 +64,7 @@ const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgU
 }
 
 const MARGIN = 20;
+const INNER_MARGIN = 10;
 const GRID_SIZE = 40;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
   const UTIL_WIDTH = ctx.canvas.width - 2*MARGIN;
@@ -84,7 +85,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   
   const LEFT_WIDTH = UTIL_WIDTH/3;
   //const LEFT_WIDTH = LOW_HEIGHT;
-  const RIGHT_X = LEFT_WIDTH;
+  const RIGHT_X = LEFT_WIDTH + INNER_MARGIN;
   const RIGHT_WIDTH = UTIL_WIDTH - RIGHT_X;
 
   // Picture
