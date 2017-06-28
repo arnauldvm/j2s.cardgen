@@ -78,7 +78,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.restore();
 
   // Name
-  ctx.font = '18px Times New Roman bold';
+  ctx.font = 'bold 18px Times New Roman serif';
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.fillText(cardDescription.name, 2*UTIL_WIDTH/3, UTIL_HEIGHT/2);
