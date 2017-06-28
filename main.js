@@ -10,7 +10,8 @@ app.setName('CardGen - Cards Generator')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600, title: app.getName()})
+  win = new BrowserWindow({width: 800, height: 600, title: app.getName(),
+                webPreferences: {experimentalCanvasFeatures: true}})
   // and load the index.html of the app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),

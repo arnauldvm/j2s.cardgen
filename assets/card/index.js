@@ -33,6 +33,26 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
   ctx.restore();
 }
 
+const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgUrl, w, h, /* boolean */ hasBorder) {
+  // (saving the context transform matrix and stroke style,
+  //  since it will likely have changed by the time the image is actually drawn
+  //  (because of async loading))
+  const curTransform = ctx.currentTransform;
+  const curStrokeStyle = ctx.strokeStyle;
+  const img = new Image();
+  img.addEventListener('load', function() {
+    const saveTransform = ctx.currentTransform;
+    const saveStrokeStyle = ctx.strokeStyle;
+    ctx.currentTransform = curTransform;
+    ctx.strokeStyle = curStrokeStyle;
+    ctx.drawImage(img, 0, 0, w, h); // TODO: should preserve size ratio
+    if (hasBorder) ctx.strokeRect(0, 0, w, h);
+    ctx.currentTransform = saveTransform;
+    ctx.strokeStyle = saveStrokeStyle;
+  }, false);
+  img.src = cardDescription.picture;
+}
+
 const MARGIN = 20;
 const GRID_SIZE = 40;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
@@ -54,21 +74,8 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.fillText(cardDescription.name, 2*UTIL_WIDTH/3, UTIL_HEIGHT/2);
 
   // Picture
-  // (using promises to avoid context being changed before actually draing the image (because of asyng loading))
-  let img = new Image();
-  const imgLoaded = new Promise((resolve, reject) => {
-    img.addEventListener('load', resolve, false);
-  });
-  img.src = cardDescription.picture;
-  let imgDrawn = imgLoaded.then(() => {
-    ctx.save();
-    ctx.translate(0, UTIL_HEIGHT/2);
-    ctx.drawImage(img, 0, 0, UTIL_WIDTH/3, UTIL_HEIGHT/2); // TODO: should preserve size ratio
-    ctx.strokeRect(0, 0, UTIL_WIDTH/3, UTIL_HEIGHT/2);
-    ctx.restore();
-  });
+  ctx.translate(0, UTIL_HEIGHT/2);
+  drawImage(ctx, cardDescription.picture, UTIL_WIDTH/3, UTIL_HEIGHT/2, true);
 
-  imgDrawn.then(() => {
   ctx.restore();
-  })
 }
