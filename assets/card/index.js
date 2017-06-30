@@ -66,7 +66,6 @@ const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgU
 
 const textHeight = function(/* CanvasRenderingContext2D */ ctx, /* string */ text) {
   const textMeasure = ctx.measureText(text);
-  console.log("textMeasure", textMeasure);
   return (textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent);  
 }
 
@@ -149,7 +148,6 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.textBaseline = 'bottom';
   h = LOW_HEIGHT;
   for (let idx = descriptionLines.length-1; idx>=0; idx--) {
-    console.log("idx", idx, "h", h);
     const curLine = descriptionLines[idx];
     ctx.fillText(curLine, RIGHT_WIDTH, h);
     h -= textHeight(ctx, curLine)
