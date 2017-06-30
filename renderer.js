@@ -1,3 +1,7 @@
+const printBtn = document.getElementById('print');
+printBtn.addEventListener('click', function (event) {
+  window.print();
+});
 const cardDescription = require("./data/card.json");
 
 const card = require('./assets/card');

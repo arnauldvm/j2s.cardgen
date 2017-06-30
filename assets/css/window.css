@@ -3,3 +3,17 @@
   border: 1px solid grey;
   background-color: white;
 }
+
+.button {
+  border-radius: 3px;
+  border: outset medium;
+  padding: 2px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:active {
+  border-style: inset;
+}
