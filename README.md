@@ -1,3 +1,15 @@
+Cards Generator
+===============
+
+This application will make possible to generate automatically the rendering of many specific game cards, based on a declaration file.
+
+It is meant to support boardgame designers during the prototyping phase.
+
+Disclaimer
+----------
+
+The status is prototype. As of now, the system has hardcoded rules for one given game and could not (yet) be re-used in other situations.
+
 Prerequisites
 -------------
 
