@@ -17,3 +17,9 @@
 .button:active {
   border-style: inset;
 }
+
+@media print {
+  h1, .button {
+    display: none;
+  }
+}
