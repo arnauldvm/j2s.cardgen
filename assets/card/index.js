@@ -85,6 +85,27 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   const gridHeightRatio = drawGrid(ctx, cardDescription.positions);
   ctx.restore();
 
+  // Bonus
+  const BONUS_WIDTH = UTIL_WIDTH / 2 / 3; // so that Att & Def are centered
+  ctx.save();
+  ctx.fillStyle = 'Black';
+  ctx.textAlign = 'center';
+  ctx.font = 'bold 24px Helvetica sans-serif';
+  const MID_HEIGHT = textHeight(ctx, "X");
+  ctx.translate(UTIL_WIDTH - BONUS_WIDTH/2, MID_HEIGHT);
+  ctx.textBaseline = 'bottom';
+  ctx.fillText(cardDescription.bonus.att, -3*BONUS_WIDTH, 0);
+  ctx.fillText(cardDescription.bonus.def, -2*BONUS_WIDTH, 0);
+  ctx.fillText(cardDescription.bonus.sh1, -BONUS_WIDTH, 0);
+  ctx.fillText(cardDescription.bonus.sh2, 0, 0);
+  ctx.font = '12px Helvetica sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.fillText("Att", -3*BONUS_WIDTH, 0);
+  ctx.fillText("Def", -2*BONUS_WIDTH, 0);
+  ctx.fillText("Shot1", -BONUS_WIDTH, 0);
+  ctx.fillText("Shot2", 0, 0);
+  ctx.restore();
+
   // Low half
   const LOW_Y = GRID_SIZE*gridHeightRatio + INNER_MARGIN;
   ctx.translate(0, LOW_Y);
