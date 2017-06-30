@@ -23,6 +23,7 @@ Build
 -----
 
 ```sh
+$ git checkout proto/ffr
 $ npm install
 ```
 
