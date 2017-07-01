@@ -73,7 +73,7 @@ ipc.on('pdf', function (event) {
       filters: [{name: "PDF", extensions: ["pdf"]}]
     }, (filepath) => {
       if (filepath) resolve(filepath);
-      else reject("No file path selected.");
+      else reject("No file path selected, abort.");
     });
   }));
   
@@ -99,7 +99,7 @@ ipc.on('pdf', function (event) {
     client.send('wrote-pdf', filepath);
     console.log(`Wrote PDF successfully to ${filepath}`);
   }).catch((error) => {
-    console.error("PDF", error);
+    console.error("PDF error:", error);
   });
 
 });
