@@ -5,14 +5,14 @@ const GRID_PATH = new Path2D("M0 0 H3 V3 H0 Z M1 0 V3 M2 0 V3 M0 1 H3 M0 2 H3 M0
 const SQUARE_PATH = new Path2D("M0 0 H1 V1 H0 Z");
 const X_KEEPER = 1, Y_KEEPER = 3;
 const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9] */ positions) /* number */ { // returns grid height ratio
-  ctx.save();
+  ctx.save(); {
   ctx.scale(1/3, 1/3); ctx.lineWidth = ctx.lineWidth * 3;
   ctx.strokeStyle = GRID_COLOR;
   ctx.stroke(GRID_PATH);
-  ctx.save();
+  ctx.save(); {
   ctx.translate(X_KEEPER, Y_KEEPER);
   ctx.stroke(SQUARE_PATH);
-  ctx.restore();
+  } ctx.restore();
 
   ctx.fillStyle = GRID_COLOR;
   let pos, x, y;
@@ -25,12 +25,12 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
       x = X_KEEPER;
       y = Y_KEEPER;
     }
-    ctx.save();
+    ctx.save(); {
     ctx.translate(x, y);
     ctx.fill(SQUARE_PATH);
-    ctx.restore();
+    } ctx.restore();
   }
-  ctx.restore();
+  } ctx.restore();
   return 4/3;
 }
 
@@ -81,18 +81,19 @@ const GRID_SIZE = 40;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
   const UTIL_WIDTH = ctx.canvas.width - 2*MARGIN;
   const UTIL_HEIGHT = ctx.canvas.height - 2*MARGIN;
-  ctx.save();
+  ctx.save(); {
   ctx.translate(MARGIN, MARGIN);
 
   // Positions grid
-  ctx.save();
+  let gridHeightRatio;
+  ctx.save(); {
   ctx.scale(GRID_SIZE, GRID_SIZE); ctx.lineWidth = ctx.lineWidth / GRID_SIZE;
-  const gridHeightRatio = drawGrid(ctx, cardDescription.positions);
-  ctx.restore();
+  gridHeightRatio = drawGrid(ctx, cardDescription.positions);
+  } ctx.restore();
 
   // Bonus
   const BONUS_WIDTH = UTIL_WIDTH / 2 / 3; // so that Att & Def are centered
-  ctx.save();
+  ctx.save(); {
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.font = 'bold 24px Helvetica sans-serif';
@@ -117,7 +118,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
     ctx.fillText("Shot1", -BONUS_WIDTH, 0);
   if (typeof cardDescription.bonus.sh2 != "undefined")
     ctx.fillText("Shot2", 0, 0);
-  ctx.restore();
+  } ctx.restore();
 
   // Low half
   const LOW_Y = GRID_SIZE*gridHeightRatio + INNER_MARGIN;
@@ -167,5 +168,5 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
     h -= textHeight(ctx, curLine)
   }
 
-  ctx.restore();
+  } ctx.restore();
 }
