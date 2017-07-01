@@ -61,7 +61,7 @@ ipc.on('pdf', function (event) {
   fs.mkdir("./output"); // No callback, we ignore the result
   const filePromise = new Promise((resolve, reject) => {
     dialog.showSaveDialog(win, {
-      title: "Select DPF file path",
+      title: "Select PDF file path",
       defaultPath: "./output/cards",
       filters: [{name: "PDF", extensions: ["pdf"]}]
     }, (filepath) => {
