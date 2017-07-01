@@ -61,7 +61,7 @@ const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgU
     if (hasBorder) ctx.strokeRect(0, 0, width, height);
     saveContext.restoreIn(ctx);
   }, false);
-  img.src = cardDescription.picture;
+  img.src = imgUrl;
 }
 
 const textHeight = function(/* CanvasRenderingContext2D */ ctx, /* string */ text) {
