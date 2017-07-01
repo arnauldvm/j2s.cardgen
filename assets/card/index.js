@@ -20,7 +20,7 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
     pos = positions[idx]-1;
     if (pos>=0) {
       x = pos%3;
-      y = ~~(pos/3);
+      y = 2 - ~~(pos/3);
     } else {
       x = X_KEEPER;
       y = Y_KEEPER;

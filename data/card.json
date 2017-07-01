@@ -1,6 +1,6 @@
 {
   "name": "Ialoukeg Alelemov",
-  "positions": "36",
+  "positions": "69",
   "bonus": { "att": 2, "def": -1, "sh1": 1, "sh2": -2 },
   "specials": [ "Coup de glace", "Balon givré" ],
   "picture": "./assets/img/man-31607_640.png",
