@@ -93,16 +93,24 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   const MID_HEIGHT = textHeight(ctx, "X");
   ctx.translate(UTIL_WIDTH - BONUS_WIDTH/2, MID_HEIGHT);
   ctx.textBaseline = 'bottom';
-  ctx.fillText(cardDescription.bonus.att, -3*BONUS_WIDTH, 0);
-  ctx.fillText(cardDescription.bonus.def, -2*BONUS_WIDTH, 0);
-  ctx.fillText(cardDescription.bonus.sh1, -BONUS_WIDTH, 0);
-  ctx.fillText(cardDescription.bonus.sh2, 0, 0);
+  if (typeof cardDescription.bonus.att != "undefined")
+    ctx.fillText(cardDescription.bonus.att, -3*BONUS_WIDTH, 0);
+  if (typeof cardDescription.bonus.def != "undefined")
+    ctx.fillText(cardDescription.bonus.def, -2*BONUS_WIDTH, 0);
+  if (typeof cardDescription.bonus.sh1 != "undefined")
+    ctx.fillText(cardDescription.bonus.sh1, -BONUS_WIDTH, 0);
+  if (typeof cardDescription.bonus.sh2 != "undefined")
+    ctx.fillText(cardDescription.bonus.sh2, 0, 0);
   ctx.font = '12px Helvetica sans-serif';
   ctx.textBaseline = 'top';
-  ctx.fillText("Att", -3*BONUS_WIDTH, 0);
-  ctx.fillText("Def", -2*BONUS_WIDTH, 0);
-  ctx.fillText("Shot1", -BONUS_WIDTH, 0);
-  ctx.fillText("Shot2", 0, 0);
+  if (typeof cardDescription.bonus.att != "undefined")
+    ctx.fillText("Att", -3*BONUS_WIDTH, 0);
+  if (typeof cardDescription.bonus.def != "undefined")
+    ctx.fillText("Def", -2*BONUS_WIDTH, 0);
+  if (typeof cardDescription.bonus.sh1 != "undefined")
+    ctx.fillText("Shot1", -BONUS_WIDTH, 0);
+  if (typeof cardDescription.bonus.sh2 != "undefined")
+    ctx.fillText("Shot2", 0, 0);
   ctx.restore();
 
   // Low half
