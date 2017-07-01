@@ -58,20 +58,24 @@ ipc.on('pdf', function (event) {
   const client = event.sender;
   const win = BrowserWindow.fromWebContents(client);
   
-  fs.mkdir("./output", (error) => {
-    if (error.code === "EEXIST") return;
-    console.error(error.message);
+  const mkdirPromise = new Promise((resolve, reject) => {
+    const dirpath = "./output";
+    fs.mkdir(dirpath, (error) => {
+      if (!error || (error.code === "EEXIST")) resolve(dirpath);
+      else reject(error);
+    });
   });
-  const filePromise = new Promise((resolve, reject) => {
+
+  const filePromise = mkdirPromise.then((dirpath) => new Promise((resolve, reject) => {
     dialog.showSaveDialog(win, {
       title: "Select PDF file path",
-      defaultPath: "./output/cards",
+      defaultPath: `${dirpath}/cards`,
       filters: [{name: "PDF", extensions: ["pdf"]}]
     }, (filepath) => {
       if (filepath) resolve(filepath);
       else reject("No file path selected.");
     });
-  });
+  }));
   
   const renderPromise = filePromise.then((filepath) => new Promise((resolve, reject) => {
     win.webContents.printToPDF({
