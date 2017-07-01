@@ -62,7 +62,7 @@ ipc.on('pdf', function (event) {
     const dirpath = "./output";
     fs.mkdir(dirpath, (error) => {
       if (!error || (error.code === "EEXIST")) resolve(dirpath);
-      else reject(error);
+      else reject(error.message);
     });
   });
 
