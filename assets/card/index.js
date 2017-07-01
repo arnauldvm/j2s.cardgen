@@ -69,6 +69,12 @@ const textHeight = function(/* CanvasRenderingContext2D */ ctx, /* string */ tex
   return (textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent);  
 }
 
+const bonusToString = function(/* number */ bonus) {
+  if (bonus>0) return `+${bonus}`;
+  else if (bonus<0) return `${bonus}`;
+  else return "-";
+}
+
 const MARGIN = 20;
 const INNER_MARGIN = 10;
 const GRID_SIZE = 40;
@@ -94,13 +100,13 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   ctx.translate(UTIL_WIDTH - BONUS_WIDTH/2, MID_HEIGHT);
   ctx.textBaseline = 'bottom';
   if (typeof cardDescription.bonus.att != "undefined")
-    ctx.fillText(cardDescription.bonus.att, -3*BONUS_WIDTH, 0);
+    ctx.fillText(bonusToString(cardDescription.bonus.att), -3*BONUS_WIDTH, 0);
   if (typeof cardDescription.bonus.def != "undefined")
-    ctx.fillText(cardDescription.bonus.def, -2*BONUS_WIDTH, 0);
+    ctx.fillText(bonusToString(cardDescription.bonus.def), -2*BONUS_WIDTH, 0);
   if (typeof cardDescription.bonus.sh1 != "undefined")
-    ctx.fillText(cardDescription.bonus.sh1, -BONUS_WIDTH, 0);
+    ctx.fillText(bonusToString(cardDescription.bonus.sh1), -BONUS_WIDTH, 0);
   if (typeof cardDescription.bonus.sh2 != "undefined")
-    ctx.fillText(cardDescription.bonus.sh2, 0, 0);
+    ctx.fillText(bonusToString(cardDescription.bonus.sh2), 0, 0);
   ctx.font = '12px Helvetica sans-serif';
   ctx.textBaseline = 'top';
   if (typeof cardDescription.bonus.att != "undefined")
