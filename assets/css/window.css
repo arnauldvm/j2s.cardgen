@@ -20,7 +20,7 @@
 }
 
 @media print {
-  h1, .button {
+  body > :not(#cards) {
     display: none;
   }
 }
