@@ -1,80 +1,10 @@
 [
 {
-  "id": "0-10",
-  "count": 1,
-  "name": "Rupert Lars",
-  "positions": "0",
-  "bonus": { "def": 2 },
-  "specials": [ "Coup du Scorpion" ],
-  "picture": "./assets/img/profile_picture_by_awesome_orc-d4wzzme.jpg",
-  "description": "Rien ne peut atteindre\nses filets ..."
-},
-{
-  "id": "0-9",
+  "id": "0-1",
   "count": 2,
-  "name": "Vasco Domingos",
-  "positions": "689",
-  "bonus": { "att": 3, "def": -1, "sh1": 0, "sh2": -3 },
-  "specials": [ ],
-  "picture": "./assets/img/53254.svg",
-  "description": ""
-},
-{
-  "id": "0-8",
-  "count": 2,
-  "name": "Sergio Arrigo",
-  "positions": "589",
-  "bonus": { "att": 3, "def": -1, "sh1": 2, "sh2": -1 },
-  "specials": [ ],
-  "picture": "./assets/img/53254.svg",
-  "description": ""
-},
-{
-  "id": "0-7",
-  "count": 2,
-  "name": "Ialoukeg Alelemov",
-  "positions": "69",
-  "bonus": { "att": 2, "def": -1, "sh1": 1, "sh2": -2 },
-  "specials": [ "Coup de glace", "Balon givré" ],
-  "picture": "./assets/img/man-31607_640.png",
-  "description": "Ce joueur venu du Nord\nn'a pas froid aux yeux !"
-},
-{
-  "id": "0-6",
-  "count": 2,
-  "name": "Lucjusz Anastazy",
-  "positions": "36",
-  "bonus": { "att": 1, "def": 2, "sh2": -4 },
-  "specials": [ ],
-  "picture": "./assets/img/53254.svg",
-  "description": ""
-},
-{
-  "id": "0-5",
-  "count": 2,
-  "name": "Akuchi Chukwuma",
-  "positions": "159",
-  "bonus": { "att": 1, "def": 0, "sh1": 2, "sh2": -1 },
-  "specials": [ "Sombrero", "Roulete", "Rabona" ],
-  "picture": "./assets/img/9ebbaceb83bf6d4751cd657f11384e16.jpg",
-  "description": "Un joueur polyvalent\net combatif."
-},
-{
-  "id": "0-4",
-  "count": 2,
-  "name": "Kenji Yasu",
-  "positions": "456",
-  "bonus": { "att": 2, "def": 1, "sh2": -3 },
-  "specials": [ ],
-  "picture": "./assets/img/53254.svg",
-  "description": ""
-},
-{
-  "id": "0-3",
-  "count": 2,
-  "name": "Cliff Ross",
-  "positions": "23",
-  "bonus": { "att": -1, "def": 3 },
+  "name": "Sanjit Shahrukh",
+  "positions": "12",
+  "bonus": { "att": -1, "def": 2 },
   "specials": [ ],
   "picture": "./assets/img/53254.svg",
   "description": ""
@@ -90,13 +20,83 @@
   "description": ""
 },
 {
-  "id": "0-1",
+  "id": "0-3",
   "count": 2,
-  "name": "Sanjit Shahrukh",
-  "positions": "12",
-  "bonus": { "att": -1, "def": 2 },
+  "name": "Cliff Ross",
+  "positions": "23",
+  "bonus": { "att": -1, "def": 3 },
   "specials": [ ],
   "picture": "./assets/img/53254.svg",
   "description": ""
+},
+{
+  "id": "0-4",
+  "count": 2,
+  "name": "Kenji Yasu",
+  "positions": "456",
+  "bonus": { "att": 2, "def": 1, "sh2": -3 },
+  "specials": [ ],
+  "picture": "./assets/img/53254.svg",
+  "description": ""
+},
+{
+  "id": "0-5",
+  "count": 2,
+  "name": "Akuchi Chukwuma",
+  "positions": "159",
+  "bonus": { "att": 1, "def": 0, "sh1": 2, "sh2": -1 },
+  "specials": [ "Sombrero", "Roulete", "Rabona" ],
+  "picture": "./assets/img/9ebbaceb83bf6d4751cd657f11384e16.jpg",
+  "description": "Un joueur polyvalent\net combatif."
+},
+{
+  "id": "0-6",
+  "count": 2,
+  "name": "Lucjusz Anastazy",
+  "positions": "36",
+  "bonus": { "att": 1, "def": 2, "sh2": -4 },
+  "specials": [ ],
+  "picture": "./assets/img/53254.svg",
+  "description": ""
+},
+{
+  "id": "0-7",
+  "count": 2,
+  "name": "Ialoukeg Alelemov",
+  "positions": "69",
+  "bonus": { "att": 2, "def": -1, "sh1": 1, "sh2": -2 },
+  "specials": [ "Coup de glace", "Balon givré" ],
+  "picture": "./assets/img/man-31607_640.png",
+  "description": "Ce joueur venu du Nord\nn'a pas froid aux yeux !"
+},
+{
+  "id": "0-8",
+  "count": 2,
+  "name": "Sergio Arrigo",
+  "positions": "589",
+  "bonus": { "att": 3, "def": -1, "sh1": 2, "sh2": -1 },
+  "specials": [ ],
+  "picture": "./assets/img/53254.svg",
+  "description": ""
+},
+{
+  "id": "0-9",
+  "count": 2,
+  "name": "Vasco Domingos",
+  "positions": "689",
+  "bonus": { "att": 3, "def": -1, "sh1": 0, "sh2": -3 },
+  "specials": [ ],
+  "picture": "./assets/img/53254.svg",
+  "description": ""
+},
+{
+  "id": "0-10",
+  "count": 1,
+  "name": "Rupert Lars",
+  "positions": "0",
+  "bonus": { "def": 2 },
+  "specials": [ "Coup du Scorpion" ],
+  "picture": "./assets/img/profile_picture_by_awesome_orc-d4wzzme.jpg",
+  "description": "Rien ne peut atteindre\nses filets ..."
 }
 ]
