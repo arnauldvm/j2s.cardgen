@@ -1,5 +1,6 @@
 [
   {
+  "id": "0-10",
   "count": 1,
   "name": "Rupert Lars",
   "positions": "0",
@@ -9,6 +10,7 @@
   "description": "Rien ne peut atteindre\nses filets ..."
 },
 {
+  "id": "0-7",
   "count": 4,
   "name": "Ialoukeg Alelemov",
   "positions": "69",
@@ -18,6 +20,7 @@
   "description": "Ce joueur venu du Nord\nn'a pas froid aux yeux !"
 },
 {
+  "id": "0-5",
   "count": 2,
   "name": "Akuchi Chukwuma",
   "positions": "159",

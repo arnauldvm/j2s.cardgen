@@ -66,7 +66,12 @@ const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgU
 
 const textHeight = function(/* CanvasRenderingContext2D */ ctx, /* string */ text) {
   const textMeasure = ctx.measureText(text);
-  return (textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent);  
+  return (textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent);
+}
+
+const textWidth = function(/* CanvasRenderingContext2D */ ctx, /* string */ text) {
+  const textMeasure = ctx.measureText(text);
+  return (textMeasure.width);
 }
 
 const bonusToString = function(/* number */ bonus) {
@@ -78,6 +83,7 @@ const bonusToString = function(/* number */ bonus) {
 const MARGIN = 20;
 const INNER_MARGIN = 10;
 const GRID_SIZE = 40;
+const TEXT_PADDING = 2;
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
   const UTIL_WIDTH = ctx.canvas.width - 2*MARGIN;
   const UTIL_HEIGHT = ctx.canvas.height - 2*MARGIN;
@@ -121,6 +127,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   } ctx.restore();
 
   // Low half
+  ctx.save(); {
   const LOW_Y = GRID_SIZE*gridHeightRatio + INNER_MARGIN;
   ctx.translate(0, LOW_Y);
   const LOW_HEIGHT = UTIL_HEIGHT - LOW_Y;
@@ -134,6 +141,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
   drawImage(ctx, cardDescription.picture, LEFT_WIDTH, LOW_HEIGHT, true);
 
   // Low Right
+  ctx.save(); {
   ctx.translate(RIGHT_X, 0);
 
   let h = 0;
@@ -167,6 +175,18 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescripti
     ctx.fillText(curLine, RIGHT_WIDTH, h);
     h -= textHeight(ctx, curLine)
   }
+
+  } ctx.restore(); // Low Right
+
+  } ctx.restore(); // Low half
+
+  // Unique identifier
+  ctx.font = '7px Helvetica sans-serif';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'top';
+  ctx.fillText(cardDescription.id, UTIL_WIDTH-TEXT_PADDING, UTIL_HEIGHT+TEXT_PADDING);
+  ctx.lineWidth = 0.5;
+  ctx.strokeRect(UTIL_WIDTH, UTIL_HEIGHT, -textWidth(ctx, cardDescription.id)-2*TEXT_PADDING, textHeight(ctx, cardDescription.id)+2*TEXT_PADDING);
 
   } ctx.restore();
 }
