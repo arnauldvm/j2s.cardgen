@@ -11,6 +11,9 @@ printPDFBtn.addEventListener('click', function (  ) {
 ipc.on('wrote-pdf', function (event, path) {
   alert(`Wrote PDF to: ${path}`);
 });
+ipc.on('failed-pdf', function (event, error) {
+  alert(`No PDF created: ${error}`);
+});
 
 
 const cardDescription = require("./data/card.json");

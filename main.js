@@ -100,6 +100,7 @@ ipc.on('pdf', function (event) {
     console.log(`Wrote PDF successfully to ${filepath}`);
   }).catch((error) => {
     console.error("PDF error:", error);
+    client.send('failed-pdf', error);
   });
 
 });
