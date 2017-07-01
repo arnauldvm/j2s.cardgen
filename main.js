@@ -58,7 +58,10 @@ ipc.on('pdf', function (event) {
   const client = event.sender;
   const win = BrowserWindow.fromWebContents(client);
   
-  fs.mkdir("./output"); // No callback, we ignore the result
+  fs.mkdir("./output", (error) => {
+    if (error.code === "EEXIST") return;
+    console.error(error.message);
+  });
   const filePromise = new Promise((resolve, reject) => {
     dialog.showSaveDialog(win, {
       title: "Select PDF file path",
