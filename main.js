@@ -80,12 +80,19 @@ const inputMatch = function(input, inputMask) {
 const CtrlP = {key: 'p', control: true, alt: false, meta: false, shift: false};
 const MetaP = {key: 'p', control: false, alt: false, meta: true, shift: false};
 const CmdP = MetaP;
+const ShiftCtrlP = {key: 'p', control: true, alt: false, meta: false, shift: true};
+const ShiftMetaP = {key: 'p', control: false, alt: false, meta: true, shift: true};
+const ShiftCmdP = MetaP;
 
 const printShortcut = (process.platform=='darwin')?CmdP:CtrlP;
+const pdfShortcut = (process.platform=='darwin')?ShiftCmdP:ShiftCtrlP;
 
 app.on('web-contents-created', function (event, contents) {
   contents.on('before-input-event', function (event, input) {
     if (inputMatch(input, printShortcut)) {
+      event.sender.print();
+      event.preventDefault();
+    } else if (inputMatch(input, pdfShortcut)) {
       doSavePdf(event.sender);
       event.preventDefault();
     }
