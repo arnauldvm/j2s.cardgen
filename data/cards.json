@@ -87,7 +87,7 @@
   "id": "0-7",
   "count": 2,
   "name": "Ialoukeg Alelemov",
-  "positions": "69",
+  "positions": "47",
   "bonus": { "att": 2, "def": -1, "sh1": 1, "sh2": -2 },
   "specials": [ "Coup de glace", "Balon givré" ],
   "picture": "./assets/img/man-31607_640.png",
