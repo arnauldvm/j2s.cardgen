@@ -100,7 +100,7 @@
   "positions": "589",
   "bonus": { "att": 3, "def": -1, "sh1": 2, "sh2": -1 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/zombie-face-highlights.jpg",
   "description": ""
 },
 {
@@ -110,7 +110,7 @@
   "positions": "689",
   "bonus": { "att": 3, "def": -1, "sh1": 0, "sh2": -3 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/9464918391_072881bf18_b.jpg",
   "description": ""
 },
 {
