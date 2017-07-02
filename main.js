@@ -1,7 +1,6 @@
-const {app, BrowserWindow, dialog} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const url = require('url')
-const fs = require('fs')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -53,55 +52,22 @@ app.on('activate', () => {
 
 const electron = require('electron');
 const ipc = electron.ipcMain;
+const pdf = require('./assets/pdf');
 
 ipc.on('pdf', function (event) {
   const client = event.sender;
-  const win = BrowserWindow.fromWebContents(client);
-  
-  const mkdirPromise = new Promise((resolve, reject) => {
-    const dirpath = "./output";
-    fs.mkdir(dirpath, (error) => {
-      if (!error) resolve(dirpath);
-      else if (error.code === "EEXIST") resolve(dirpath);
-      else reject(error.message);
-    });
-  });
-
-  const filePromise = mkdirPromise.then((dirpath) => new Promise((resolve, reject) => {
-    dialog.showSaveDialog(win, {
-      title: "Select PDF file path",
-      defaultPath: `${dirpath}/cards`,
-      filters: [{name: "PDF", extensions: ["pdf"]}]
-    }, (filepath) => {
-      if (filepath) resolve(filepath);
-      else reject("No file path selected, abort.");
-    });
-  }));
-  
-  const renderPromise = filePromise.then((filepath) => new Promise((resolve, reject) => {
-    win.webContents.printToPDF({
-      marginsType: 2, // minimal
-      pageSize: "A4",
-      landscape: false
-    }, (error, data) => {
-      if (error) reject(error);
-      else resolve([data, filepath]);
-    });
-  }));
-
-  const savePromise = renderPromise.then(([data, filepath]) => new Promise((resolve, reject) => {
-    fs.writeFile(filepath, data, (error) => {
-      if (error) reject(error);
-      else resolve(filepath);
-    });
-  }));
-
-  savePromise.then((filepath) => {
-    client.send('wrote-pdf', filepath);
-    console.log(`Wrote PDF successfully to ${filepath}`);
-  }).catch((error) => {
-    console.error("PDF error:", error);
-    client.send('failed-pdf', error);
+  pdf.save({
+    window: BrowserWindow.fromWebContents(client),
+    dirpath: "./output",
+    name: "cards"
+  }, (filepath, error) => {
+    if (!error) {
+      client.send('wrote-pdf', filepath);
+      console.log(`Wrote PDF successfully to ${filepath}`);
+    } else {
+      console.error("PDF error:", error);
+      client.send('failed-pdf', error);
+    }
   });
 
 });
