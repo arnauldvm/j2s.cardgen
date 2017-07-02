@@ -6,7 +6,7 @@ const SQUARE_PATH = new Path2D("M0 0 H1 V1 H0 Z");
 const X_KEEPER = 1, Y_KEEPER = 3;
 const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9] */ positions) /* number */ { // returns grid height ratio
   ctx.save(); {
-  ctx.scale(1/3, 1/3); ctx.lineWidth = ctx.lineWidth * 3;
+  ctx.scale(1/4, 1/4); ctx.lineWidth = ctx.lineWidth * 4;
   ctx.strokeStyle = GRID_COLOR;
   ctx.stroke(GRID_PATH);
   ctx.save(); {
@@ -83,7 +83,7 @@ const bonusToString = function(/* number */ bonus) {
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardDescription) {
   const MARGIN = params.margin;
   const INNER_MARGIN = params.innermargin;
-  const GRID_SIZE = params.gridsize;
+  const GRID_OUTERSIZE = params.tophalfsize;
   const TEXT_PADDING = params.textpadding;
   const UTIL_WIDTH = ctx.canvas.width - 2*MARGIN;
   const UTIL_HEIGHT = ctx.canvas.height - 2*MARGIN;
@@ -91,10 +91,9 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   ctx.translate(MARGIN, MARGIN);
 
   // Positions grid
-  let gridHeightRatio;
   ctx.save(); {
-  ctx.scale(GRID_SIZE, GRID_SIZE); ctx.lineWidth = ctx.lineWidth / GRID_SIZE;
-  gridHeightRatio = drawGrid(ctx, cardDescription.positions);
+  ctx.scale(GRID_OUTERSIZE, GRID_OUTERSIZE); ctx.lineWidth = ctx.lineWidth / GRID_OUTERSIZE;
+  drawGrid(ctx, cardDescription.positions);
   } ctx.restore();
 
   // Bonus
@@ -128,7 +127,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
 
   // Low half
   ctx.save(); {
-  const LOW_Y = GRID_SIZE*gridHeightRatio + INNER_MARGIN;
+  const LOW_Y = GRID_OUTERSIZE + INNER_MARGIN;
   ctx.translate(0, LOW_Y);
   const LOW_HEIGHT = UTIL_HEIGHT - LOW_Y;
   
