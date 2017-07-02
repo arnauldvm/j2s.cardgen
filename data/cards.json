@@ -8,8 +8,10 @@
   "textpadding": 2,
   "bonus": [ {"key":"att", "label":"Att"}, {"key":"def", "label":"Def"}, {"key":"sh1", "label":"Shot1"}, {"key":"sh2", "label":"Shot2"} ],
   "fonts": {
-    "serif": "Times New Roman serif",
-    "sansserif": "Helvetica sans-serif"
+    "family": {
+      "serif": "Times New Roman serif",
+      "sansserif": "Helvetica sans-serif"
+    }
   }
 },
 "cards": [
