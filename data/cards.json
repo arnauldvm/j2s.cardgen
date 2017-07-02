@@ -12,21 +12,13 @@
       "serif": "Times New Roman serif",
       "sansserif": "Helvetica sans-serif"
     },
-    "size": {
-      "bonusvalue": "24px",
-      "bonuslabel": "12px",
-      "name": "18px",
-      "specials": "14px",
-      "description": "12px",
-      "id": "7px"
-    },
-    "style": {
-      "bonusvalue": "bold",
-      "bonuslabel": "",
-      "name": "bold",
-      "specials": "",
-      "description": "italic",
-      "id": ""
+    "definition": {
+      "bonusvalue":   { "family": "sansserif",  "size": "24px", "style": "bold" },
+      "bonuslabel":   { "family": "sansserif",  "size": "12px" },
+      "name":         { "family": "serif",      "size": "18px", "style": "bold" },
+      "specials":     { "family": "serif",      "size": "14px" },
+      "description":  { "family": "sansserif",  "size": "12px", "style": "italic" },
+      "id":           { "family": "sansserif",  "size":  "7px" }
     }
   }
 },
