@@ -70,7 +70,7 @@ const doSavePdf = function (client) {
   });
 };
 
-ipc.on('pdf', (event) => doSave(event.sender));
+ipc.on('pdf', (event) => doSavePdf(event.sender));
 
 const inputMatch = function(input, inputMask) {
   return !Object.keys(inputMask).some((key)=>{
@@ -82,7 +82,7 @@ const MetaP = {key: 'p', control: false, alt: false, meta: true, shift: false};
 const CmdP = MetaP;
 const ShiftCtrlP = {key: 'p', control: true, alt: false, meta: false, shift: true};
 const ShiftMetaP = {key: 'p', control: false, alt: false, meta: true, shift: true};
-const ShiftCmdP = MetaP;
+const ShiftCmdP = ShiftMetaP;
 
 const printShortcut = (process.platform=='darwin')?CmdP:CtrlP;
 const pdfShortcut = (process.platform=='darwin')?ShiftCmdP:ShiftCtrlP;
