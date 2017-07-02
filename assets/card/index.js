@@ -101,7 +101,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   ctx.save(); {
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
-  ctx.font = `bold 24px ${params.fonts.family.sansserif}`;
+  ctx.font = `${params.fonts.style.bonusvalue} ${params.fonts.size.bonusvalue} ${params.fonts.family.sansserif}`;
   const MID_HEIGHT = textHeight(ctx, "X");
   ctx.translate(UTIL_WIDTH - BONUS_WIDTH/2, MID_HEIGHT);
   ctx.textBaseline = 'bottom';
@@ -110,7 +110,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
     if (typeof cardDescription.bonus[bonus.key] != "undefined")
       ctx.fillText(bonusToString(cardDescription.bonus[bonus.key]), (idx-3)*BONUS_WIDTH, 0);
   }
-  ctx.font = `12px ${params.fonts.sansserif}`;
+  ctx.font = `${params.fonts.style.bonuslabel} ${params.fonts.size.bonuslabel} ${params.fonts.sansserif}`;
   ctx.textBaseline = 'top';
   for (let idx in params.bonus) {
     const bonus = params.bonus[idx];
@@ -140,7 +140,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   let h = 0;
 
   // Name
-  ctx.font = `bold 18px ${params.fonts.family.serif}`;
+  ctx.font = `${params.fonts.style.name} ${params.fonts.size.name} ${params.fonts.family.serif}`;
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
@@ -149,7 +149,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   h += textHeight(ctx, "")/2;
 
   // Specials
-  ctx.font =  `14px ${params.fonts.family.serif}`;
+  ctx.font =  `${params.fonts.style.specials} ${params.fonts.size.specials} ${params.fonts.family.serif}`;
   ctx.textAlign = 'left';
   for (let idx = 0; idx<cardDescription.specials.length; idx++) {
     const special = cardDescription.specials[idx];
@@ -159,7 +159,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
 
   // Description
   const descriptionLines = cardDescription.description.split('\n');
-  ctx.font = `italic 12px ${params.fonts.family.sansserif}`;
+  ctx.font = `${params.fonts.style.description} ${params.fonts.size.description} ${params.fonts.family.sansserif}`;
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
   h = LOW_HEIGHT;
@@ -174,7 +174,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   } ctx.restore(); // Low half
 
   // Unique identifier
-  ctx.font = `7px ${params.fonts.family.sansserif}`;
+  ctx.font = `${params.fonts.style.id} ${params.fonts.size.id} ${params.fonts.family.sansserif}`;
   ctx.textAlign = 'right';
   ctx.textBaseline = 'top';
   ctx.fillText(cardDescription.id, UTIL_WIDTH-TEXT_PADDING, UTIL_HEIGHT+TEXT_PADDING);

@@ -11,6 +11,22 @@
     "family": {
       "serif": "Times New Roman serif",
       "sansserif": "Helvetica sans-serif"
+    },
+    "size": {
+      "bonusvalue": "24px",
+      "bonuslabel": "12px",
+      "name": "18px",
+      "specials": "14px",
+      "description": "12px",
+      "id": "7px"
+    },
+    "style": {
+      "bonusvalue": "bold",
+      "bonuslabel": "",
+      "name": "bold",
+      "specials": "",
+      "description": "italic",
+      "id": ""
     }
   }
 },
