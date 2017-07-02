@@ -71,7 +71,7 @@
   "bonus": { "att": 1, "def": 0, "sh1": 2, "sh2": -1 },
   "specials": [ "Sombrero", "Roulete", "Rabona" ],
   "picture": "./assets/img/9ebbaceb83bf6d4751cd657f11384e16.jpg",
-  "description": "Un joueur polyvalent\net combatif."
+  "description": "Un joueur polyvalent et combatif."
 },
 {
   "id": "0-6",
@@ -91,7 +91,7 @@
   "bonus": { "att": 2, "def": -1, "sh1": 1, "sh2": -2 },
   "specials": [ "Coup de glace", "Balon givré" ],
   "picture": "./assets/img/man-31607_640.png",
-  "description": "Ce joueur venu du Nord\nn'a pas froid aux yeux !"
+  "description": "Ce joueur venu du Nord n'a pas froid aux yeux !"
 },
 {
   "id": "0-8",
@@ -121,7 +121,7 @@
   "bonus": { "def": 2 },
   "specials": [ "Coup du Scorpion" ],
   "picture": "./assets/img/profile_picture_by_awesome_orc-d4wzzme.jpg",
-  "description": "Rien ne peut atteindre\nses filets ..."
+  "description": "Rien ne peut atteindre ses filets ..."
 }
 ]
 }

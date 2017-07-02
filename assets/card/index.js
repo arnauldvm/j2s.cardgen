@@ -86,6 +86,24 @@ const setFont = function(/* CanvasRenderingContext2D */ ctx, fontsoptions, name)
   ctx.font = (definition.style?`${definition.style} `:"") + `${definition.size} ${family}`;
 }
 
+const justify = function(/* CanvasRenderingContext2D */ ctx, width, /* string */ text) /* string[] */ {
+  const lines = [];
+  text.split('\n').forEach((para) => {
+    let curLine = "";
+    para.split(" ").forEach((word) => {
+      const nextLine = `${curLine} ${word}`;
+      if (textWidth(ctx, nextLine)>width) {
+        lines.push(curLine);
+        curLine = word;
+      } else {
+        curLine = nextLine;
+      }
+    });
+    if (curLine !== "") lines.push(curLine);
+  });
+  return lines;
+}
+
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardDescription) {
   const MARGIN = params.margin;
   const INNER_MARGIN = params.innermargin;
@@ -164,7 +182,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   }
 
   // Description
-  const descriptionLines = cardDescription.description.split('\n');
+  const descriptionLines = justify(ctx, RIGHT_WIDTH, cardDescription.description);
   setFont(ctx, params.fonts, "description");
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
