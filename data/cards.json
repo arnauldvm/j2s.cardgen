@@ -4,7 +4,7 @@
   "resolution": { "width": 600, "height": 400 },
   "margin": 40,
   "innermargin": 20,
-  "tophalfsize": 120,
+  "tophalfsize": 80,
   "textpadding": 4,
   "bonus": [ {"key":"att", "label":"Att"}, {"key":"def", "label":"Def"}, {"key":"sh1", "label":"Shot1"}, {"key":"sh2", "label":"Shot2"} ],
   "fonts": {
