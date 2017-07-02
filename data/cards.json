@@ -5,7 +5,8 @@
   "margin": 20,
   "innermargin": 10,
   "tophalfsize": 60,
-  "textpadding": 2
+  "textpadding": 2,
+  "bonus": [ {"key":"att", "label":"Att"}, {"key":"def", "label":"Def"}, {"key":"sh1", "label":"Shot1"}, {"key":"sh2", "label":"Shot2"} ]
 },
 "cards": [
 {
