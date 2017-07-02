@@ -1,4 +1,9 @@
-[
+{
+"parameters" : {
+  "size": { "width": "6cm", "height": "4cm" },
+  "resolution": { "width": 300, "height": 200 }
+},
+"cards": [
 {
   "id": "0-1",
   "count": 2,
@@ -100,3 +105,4 @@
   "description": "Rien ne peut atteindre\nses filets ..."
 }
 ]
+}

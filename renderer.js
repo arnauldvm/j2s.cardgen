@@ -21,14 +21,13 @@ const cardDescriptions = require("./data/cards.json");
 const card = require('./assets/card');
 
 const div = document.getElementById('cards');
-cardDescriptions.forEach(function(cardDescription) {
+const params = cardDescriptions.parameters;
+cardDescriptions.cards.forEach(function(cardDescription) {
   for (let idx=0; idx<cardDescription.count; idx++) {
     const canvas = document.createElement('canvas');
     canvas.classList.add('card_frame');
-    canvas.style.width = "6cm";
-    canvas.style.height = "4cm";
-    canvas.width = 300;
-    canvas.height = 200;
+    Object.assign(canvas.style, params.size);
+    Object.assign(canvas, params.resolution);
     if (!canvas.getContext) {
       alert("Canvas unsupported");
       break;
