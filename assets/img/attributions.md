@@ -7,3 +7,5 @@
 * http://pre03.deviantart.net/6643/th/pre/f/2017/164/7/d/ironhide__wfc_robot__by_barricade24-dbcm9jn.png
 * https://static.dreamland.be/wcsstore/ColruytB2CCAS/JPG/JPG/646x1000/std.lang.all/40/14/asset-964014.jpg
 * https://cdn.shopify.com/s/files/1/0225/1115/products/character-orc-ranger-3dfancy-5_2000x.jpg
+* https://cms-assets.tutsplus.com/uploads/users/431/posts/22257/image/zombie-face-highlights.jpg
+* https://c1.staticflickr.com/8/7301/9464918391_072881bf18_b.jpg
