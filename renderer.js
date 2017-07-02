@@ -32,7 +32,7 @@ cardDescriptions.cards.forEach(function(cardDescription) {
       alert("Canvas unsupported");
       break;
     }
-    card.draw(canvas.getContext('2d'), cardDescription);
+    card.draw(canvas.getContext('2d'), params, cardDescription);
     div.appendChild(canvas);
   }
 });

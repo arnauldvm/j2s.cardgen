@@ -80,11 +80,11 @@ const bonusToString = function(/* number */ bonus) {
   else return "-";
 }
 
-const MARGIN = 20;
-const INNER_MARGIN = 10;
-const GRID_SIZE = 40;
-const TEXT_PADDING = 2;
-module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, cardDescription) {
+module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardDescription) {
+  const MARGIN = params.margin;
+  const INNER_MARGIN = params.innermargin;
+  const GRID_SIZE = params.gridsize;
+  const TEXT_PADDING = params.textpadding;
   const UTIL_WIDTH = ctx.canvas.width - 2*MARGIN;
   const UTIL_HEIGHT = ctx.canvas.height - 2*MARGIN;
   ctx.save(); {

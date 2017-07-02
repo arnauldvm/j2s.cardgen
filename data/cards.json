@@ -1,7 +1,11 @@
 {
 "parameters" : {
   "size": { "width": "6cm", "height": "4cm" },
-  "resolution": { "width": 300, "height": 200 }
+  "resolution": { "width": 300, "height": 200 },
+  "margin": 20,
+  "innermargin": 10,
+  "gridsize": 40,
+  "textpadding": 2
 },
 "cards": [
 {
