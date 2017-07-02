@@ -1,11 +1,11 @@
 {
 "parameters" : {
   "size": { "width": "92mm", "height": "59mm" },
-  "resolution": { "width": 300, "height": 200 },
-  "margin": 20,
-  "innermargin": 10,
-  "tophalfsize": 60,
-  "textpadding": 2,
+  "resolution": { "width": 600, "height": 400 },
+  "margin": 40,
+  "innermargin": 20,
+  "tophalfsize": 120,
+  "textpadding": 4,
   "bonus": [ {"key":"att", "label":"Att"}, {"key":"def", "label":"Def"}, {"key":"sh1", "label":"Shot1"}, {"key":"sh2", "label":"Shot2"} ],
   "fonts": {
     "family": {
@@ -13,12 +13,12 @@
       "sansserif": "Helvetica sans-serif"
     },
     "definition": {
-      "bonusvalue":   { "family": "sansserif",  "size": "24px", "style": "bold" },
-      "bonuslabel":   { "family": "sansserif",  "size": "12px" },
-      "name":         { "family": "serif",      "size": "18px", "style": "bold" },
-      "specials":     { "family": "serif",      "size": "14px" },
-      "description":  { "family": "sansserif",  "size": "12px", "style": "italic" },
-      "id":           { "family": "sansserif",  "size":  "7px" }
+      "bonusvalue":   { "family": "sansserif",  "size": "48px", "style": "bold" },
+      "bonuslabel":   { "family": "sansserif",  "size": "24px" },
+      "name":         { "family": "serif",      "size": "36px", "style": "bold" },
+      "specials":     { "family": "serif",      "size": "28px" },
+      "description":  { "family": "sansserif",  "size": "24px", "style": "italic" },
+      "id":           { "family": "sansserif",  "size":  "14px" }
     }
   }
 },
