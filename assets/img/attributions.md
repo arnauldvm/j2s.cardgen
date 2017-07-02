@@ -2,3 +2,8 @@
 * https://s-media-cache-ak0.pinimg.com/originals/9e/bb/ac/9ebbaceb83bf6d4751cd657f11384e16.jpg
 * http://orig10.deviantart.net/5dea/f/2012/110/3/1/profile_picture_by_awesome_orc-d4wzzme.jpg
 * https://image.flaticon.com/icons/svg/53/53254.svg
+* http://www.renders-graphiques.fr/image/upload/normal/Drow.png
+* http://s3.e-monsite.com/2010/11/24/11/resize_550_550//elfes--77-a.gif
+* http://pre03.deviantart.net/6643/th/pre/f/2017/164/7/d/ironhide__wfc_robot__by_barricade24-dbcm9jn.png
+* https://static.dreamland.be/wcsstore/ColruytB2CCAS/JPG/JPG/646x1000/std.lang.all/40/14/asset-964014.jpg
+* https://cdn.shopify.com/s/files/1/0225/1115/products/character-orc-ranger-3dfancy-5_2000x.jpg
