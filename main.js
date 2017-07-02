@@ -77,8 +77,8 @@ const inputMatch = function(input, inputMask) {
     return input[key] !== inputMask[key];
   });
 }
-const CtrlP = {key: 'p', control: true, alt: false, meta: false, shift: false, meta: false, shift: false};
-const MetaP = {key: 'p', control: false, alt: false, meta: false, shift: false, meta: true, shift: false};
+const CtrlP = {key: 'p', control: true, alt: false, meta: false, shift: false};
+const MetaP = {key: 'p', control: false, alt: false, meta: true, shift: false};
 const CmdP = MetaP;
 
 const printShortcut = (process.platform=='darwin')?CmdP:CtrlP;
