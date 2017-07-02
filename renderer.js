@@ -1,3 +1,11 @@
+const msgDiv = document.getElementById('messages');
+const addMessage = function(/* string */ message) {
+  const msgElement = document.createElement('p');
+  msgElement.innerText = message;
+  msgDiv.appendChild(msgElement);
+  msgDiv.scrollTop = msgDiv.scrollHeight;
+}
+
 const printBtn = document.getElementById('print');
 printBtn.addEventListener('click', function (event) {
   window.print();
@@ -9,10 +17,10 @@ printPDFBtn.addEventListener('click', function (  ) {
   ipc.send('pdf')
 });
 ipc.on('wrote-pdf', function (event, path) {
-  alert(`Wrote PDF to: ${path}`);
+  addMessage(`Wrote PDF to: ${path}`);
 });
 ipc.on('failed-pdf', function (event, error) {
-  alert(`No PDF created: ${error}`);
+  addMessage(`No PDF created: ${error}`);
 });
 
 

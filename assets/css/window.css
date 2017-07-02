@@ -1,3 +1,16 @@
+#messages {
+  border: 2px solid lightgrey;
+  overflow-y: scroll;
+  height: 2.5em;
+  background-color: white;
+}
+
+#messages > * {
+  margin: 4px;
+  padding: 0.5 em;
+  background-color: #EEE;
+}
+
 .card_frame {
   border-radius: 3mm;
   border: 1px solid grey;
