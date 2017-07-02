@@ -80,8 +80,8 @@ const inputMatch = function(input, inputMask) {
 const CtrlP = {key: 'p', control: true, alt: false, meta: false, shift: false};
 const MetaP = {key: 'p', control: false, alt: false, meta: true, shift: false};
 const CmdP = MetaP;
-const ShiftCtrlP = {key: 'p', control: true, alt: false, meta: false, shift: true};
-const ShiftMetaP = {key: 'p', control: false, alt: false, meta: true, shift: true};
+const ShiftCtrlP = {key: 'P', control: true, alt: false, meta: false, shift: true};
+const ShiftMetaP = {key: 'P', control: false, alt: false, meta: true, shift: true};
 const ShiftCmdP = ShiftMetaP;
 
 const printShortcut = (process.platform=='darwin')?CmdP:CtrlP;
