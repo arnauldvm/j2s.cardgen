@@ -30,7 +30,7 @@
   "positions": "12",
   "bonus": { "att": -1, "def": 2 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/Drow.png",
   "description": ""
 },
 {
@@ -40,7 +40,7 @@
   "positions": "2",
   "bonus": { "att": 0, "def": 1 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/elfes--77-a.gif",
   "description": ""
 },
 {
@@ -50,7 +50,7 @@
   "positions": "23",
   "bonus": { "att": -1, "def": 3 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/ironhide__wfc_robot__by_barricade24-dbcm9jn.png",
   "description": ""
 },
 {
@@ -60,7 +60,7 @@
   "positions": "456",
   "bonus": { "att": 2, "def": 1, "sh2": -3 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/character-orc-ranger-3dfancy-5_2000x.jpg",
   "description": ""
 },
 {
@@ -80,7 +80,7 @@
   "positions": "36",
   "bonus": { "att": 1, "def": 2, "sh2": -4 },
   "specials": [ ],
-  "picture": "./assets/img/53254.svg",
+  "picture": "./assets/img/asset-964014.jpg",
   "description": ""
 },
 {
