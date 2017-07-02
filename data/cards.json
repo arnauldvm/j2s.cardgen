@@ -1,6 +1,6 @@
 {
 "parameters" : {
-  "size": { "width": "6cm", "height": "4cm" },
+  "size": { "width": "92mm", "height": "59mm" },
   "resolution": { "width": 300, "height": 200 },
   "margin": 20,
   "innermargin": 10,
