@@ -101,7 +101,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   ctx.save(); {
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
-  ctx.font = 'bold 24px Helvetica sans-serif';
+  ctx.font = `bold 24px ${params.fonts.sansserif}`;
   const MID_HEIGHT = textHeight(ctx, "X");
   ctx.translate(UTIL_WIDTH - BONUS_WIDTH/2, MID_HEIGHT);
   ctx.textBaseline = 'bottom';
@@ -110,7 +110,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
     if (typeof cardDescription.bonus[bonus.key] != "undefined")
       ctx.fillText(bonusToString(cardDescription.bonus[bonus.key]), (idx-3)*BONUS_WIDTH, 0);
   }
-  ctx.font = '12px Helvetica sans-serif';
+  ctx.font = `12px ${params.fonts.sansserif}`;
   ctx.textBaseline = 'top';
   for (let idx in params.bonus) {
     const bonus = params.bonus[idx];
@@ -140,7 +140,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   let h = 0;
 
   // Name
-  ctx.font = 'bold 18px Times New Roman serif';
+  ctx.font = `bold 18px ${params.fonts.serif}`;
   ctx.fillStyle = 'Black';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'top';
@@ -149,7 +149,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   h += textHeight(ctx, "")/2;
 
   // Specials
-  ctx.font =  '14px Times New Roman serif';
+  ctx.font =  `14px ${params.fonts.serif}`;
   ctx.textAlign = 'left';
   for (let idx = 0; idx<cardDescription.specials.length; idx++) {
     const special = cardDescription.specials[idx];
@@ -159,7 +159,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
 
   // Description
   const descriptionLines = cardDescription.description.split('\n');
-  ctx.font = 'italic 12px Helvetica sans-serif';
+  ctx.font = `italic 12px ${params.fonts.sansserif}`;
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
   h = LOW_HEIGHT;
@@ -174,7 +174,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   } ctx.restore(); // Low half
 
   // Unique identifier
-  ctx.font = '7px Helvetica sans-serif';
+  ctx.font = `7px ${params.fonts.sansserif}`;
   ctx.textAlign = 'right';
   ctx.textBaseline = 'top';
   ctx.fillText(cardDescription.id, UTIL_WIDTH-TEXT_PADDING, UTIL_HEIGHT+TEXT_PADDING);
