@@ -54,8 +54,7 @@ const electron = require('electron');
 const ipc = electron.ipcMain;
 const pdf = require('./assets/pdf');
 
-ipc.on('pdf', function (event) {
-  const client = event.sender;
+const doSavePdf = function (client) {
   pdf.save({
     window: BrowserWindow.fromWebContents(client),
     dirpath: "./output",
@@ -69,5 +68,26 @@ ipc.on('pdf', function (event) {
       client.send('failed-pdf', error);
     }
   });
+};
 
+ipc.on('pdf', (event) => doSave(event.sender));
+
+const inputMatch = function(input, inputMask) {
+  return !Object.keys(inputMask).some((key)=>{
+    return input[key] !== inputMask[key];
+  });
+}
+const CtrlP = {key: 'p', control: true, alt: false, meta: false, shift: false, meta: false, shift: false};
+const MetaP = {key: 'p', control: false, alt: false, meta: false, shift: false, meta: true, shift: false};
+const CmdP = MetaP;
+
+const printShortcut = (process.platform=='darwin')?CmdP:CtrlP;
+
+app.on('web-contents-created', function (event, contents) {
+  contents.on('before-input-event', function (event, input) {
+    if (inputMatch(input, printShortcut)) {
+      doSavePdf(event.sender);
+      event.preventDefault();
+    }
+  });
 });
