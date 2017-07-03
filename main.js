@@ -66,7 +66,7 @@ const doSavePdf = function (client, pdfOptions) {
       console.log(`Wrote PDF successfully to ${filepath}`);
     } else {
       console.error("PDF error:", error);
-      client.send('failed-pdf', error);
+      client.send('failed-pdf', error.message?error.message:error);
     }
   });
 };

@@ -15,8 +15,8 @@ document.getElementById('pdfBtn').addEventListener('click', () => ipc.send('pdf'
 ipc.on('wrote-pdf', function (event, path) {
   addMessage(`Wrote PDF to: ${path}`);
 });
-ipc.on('failed-pdf', function (event, error) {
-  addMessage(`No PDF created: ${error}`);
+ipc.on('failed-pdf', function (event, errorMessage) {
+  addMessage(`No PDF created: ${errorMessage}`);
 });
 
 const cleanUp = function() {
