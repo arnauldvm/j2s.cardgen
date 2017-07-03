@@ -25,10 +25,10 @@ const cleanUp = function() {
   return div;
 };
 
+const card = require('./assets/card');
 const displayCards = function() {
   const div = cleanUp();
   const cardDescriptions = require("./data/cards.json");
-  const card = require('./assets/card');
   const params = cardDescriptions.parameters;
   cardDescriptions.cards.forEach(function(cardDescription) {
     for (let idx=0; idx<cardDescription.count; idx++) {
