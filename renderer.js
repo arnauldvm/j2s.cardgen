@@ -8,8 +8,10 @@ const addMessage = function(/* string */ message) {
 
 document.getElementById('printBtn').addEventListener('click', () => window.print());
 
+let pdfOptions = {};
+
 const ipc = require('electron').ipcRenderer;
-document.getElementById('pdfBtn').addEventListener('click', () => ipc.send('pdf'));
+document.getElementById('pdfBtn').addEventListener('click', () => ipc.send('pdf', pdfOptions));
 ipc.on('wrote-pdf', function (event, path) {
   addMessage(`Wrote PDF to: ${path}`);
 });
@@ -30,6 +32,8 @@ const displayCards = function() {
   const div = cleanUp();
   const cardDescriptions = require("./data/cards.json");
   const params = cardDescriptions.parameters;
+  pdfOptions.name = params.defaultPdfName;
+  pdfOptions.pageSize = params.pdfPageSize;
   cardDescriptions.cards.forEach(function(cardDescription) {
     for (let idx=0; idx<cardDescription.count; idx++) {
       const canvas = document.createElement('canvas');

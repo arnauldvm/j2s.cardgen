@@ -33,7 +33,7 @@ module.exports.save = function(options, callback /* (pdfFilepath, error) */) {
   const renderPromise = filePromise.then((filepath) => new Promise((resolve, reject) => {
     options.window.webContents.printToPDF({
       marginsType: 2, // minimal
-      pageSize: "A4",
+      pageSize: options.pageSize,
       landscape: false
     }, (error, data) => {
       if (error) reject(error);

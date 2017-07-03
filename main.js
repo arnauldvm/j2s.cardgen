@@ -54,11 +54,12 @@ const electron = require('electron');
 const ipc = electron.ipcMain;
 const pdf = require('./assets/pdf');
 
-const doSavePdf = function (client) {
+const doSavePdf = function (client, pdfOptions) {
   pdf.save({
     window: BrowserWindow.fromWebContents(client),
     dirpath: "./output",
-    name: "cards"
+    name: pdfOptions.name,
+    pageSize: pdfOptions.pageSize
   }, (filepath, error) => {
     if (!error) {
       client.send('wrote-pdf', filepath);
@@ -70,7 +71,7 @@ const doSavePdf = function (client) {
   });
 };
 
-ipc.on('pdf', (event) => doSavePdf(event.sender));
+ipc.on('pdf', (event, pdfOptions) => doSavePdf(event.sender, pdfOptions));
 
 const inputMatch = function(input, inputMask) {
   return !Object.keys(inputMask).some((key)=>{
