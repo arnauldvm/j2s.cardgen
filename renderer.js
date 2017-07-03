@@ -6,16 +6,10 @@ const addMessage = function(/* string */ message) {
   msgDiv.scrollTop = msgDiv.scrollHeight;
 }
 
-const printBtn = document.getElementById('print');
-printBtn.addEventListener('click', function (event) {
-  window.print();
-});
+document.getElementById('printBtn').addEventListener('click', () => window.print());
 
 const ipc = require('electron').ipcRenderer;
-const printPDFBtn = document.getElementById('pdf');
-printPDFBtn.addEventListener('click', function (  ) {
-  ipc.send('pdf')
-});
+document.getElementById('pdfBtn').addEventListener('click', () => ipc.send('pdf'));
 ipc.on('wrote-pdf', function (event, path) {
   addMessage(`Wrote PDF to: ${path}`);
 });
