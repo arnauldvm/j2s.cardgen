@@ -52,10 +52,10 @@ app.on('activate', () => {
 
 const electron = require('electron');
 const ipc = electron.ipcMain;
-const pdf = require('./assets/pdf');
+const Pdf = require('./assets/pdf');
 
 const doSavePdf = function (client, pdfOptions) {
-  pdf.save({
+  Pdf.save({
     window: BrowserWindow.fromWebContents(client),
     dirpath: "./output",
     name: pdfOptions.name,
