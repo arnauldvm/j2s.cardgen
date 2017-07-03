@@ -18,6 +18,7 @@ ipc.on('wrote-pdf', function (event, path) {
 ipc.on('failed-pdf', function (event, errorMessage) {
   addMessage(`No PDF created: ${errorMessage}`);
 });
+ipc.on('save-pdf', () => ipc.send('pdf', pdfOptions)); // add options when printing from the main process
 
 const cleanUp = function() {
   const div = document.getElementById('drawing');

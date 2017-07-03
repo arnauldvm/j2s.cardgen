@@ -94,7 +94,7 @@ app.on('web-contents-created', function (event, contents) {
       event.sender.print();
       event.preventDefault();
     } else if (inputMatch(input, pdfShortcut)) {
-      doSavePdf(event.sender);
+      event.sender.send("save-pdf"); // add options by printing though the renderer process
       event.preventDefault();
     }
   });
