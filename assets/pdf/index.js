@@ -6,7 +6,7 @@ const { sep } = require('path');
 
 module.exports.save = function(options, callback /* (pdfFilepath, error) */) {
   if (!options.window) {
-      callback(undefined, "No content window provided");
+      process.nextTick(() => callback(undefined, "No content window provided"));
       return;
   }
 
