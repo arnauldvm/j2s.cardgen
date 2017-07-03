@@ -1,10 +1,13 @@
 'use strict';
 
+const Image = require('../image');
+
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, boardDescription) {
     const CARD_WIDTH = params.cardsize.width;
     const CARD_HEIGHT = params.cardsize.height;
     const STEP_X = CARD_WIDTH + params.innermargin;
     const STEP_Y = 2*CARD_HEIGHT + params.spacing + params.innermargin;
+    Image.draw(ctx, params.backgroundPicture, params.resolution.width, params.resolution.height, false, false, () => {
     ctx.save(); {
         ctx.strokeStyle = 'black';
         ctx.lineJoin = 'round';
@@ -34,4 +37,5 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, board
             if (half===0) ctx.rotate(Math.PI);
         }
     } ctx.restore();
+    });
 };

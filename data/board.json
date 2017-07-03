@@ -8,7 +8,8 @@
   "innermargin": 40,
   "spacing": 12,
   "font": "22px Helvetica sansserif",
-  "colors": [ "moccasin", "lightblue" ]
+  "colors": [ "moccasin", "lightblue" ],
+  "backgroundPicture": "./assets/img/football_pitch-wallpaper-640x960.jpg"
 },
 "cards": [
   { "position": { "x": -1, "y":  1 }, "label": "Attaquant gauche" },
