@@ -2,7 +2,7 @@
 "parameters" : {
   "pdfPageSize": "A4",
   "defaultPdfName": "cards",
-  "size": { "width": "92mm", "height": "59mm" },
+  "size": { "width": "92mm", "height": "59mm", "comment": "standard Euro size" },
   "resolution": { "width": 600, "height": 400 },
   "margin": 40,
   "innermargin": 20,
