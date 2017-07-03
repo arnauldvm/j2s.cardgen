@@ -2,7 +2,7 @@
 "parameters" : {
   "pdfPageSize": "A3",
   "defaultPdfName": "board",
-  "size": { "width": "420mm", "height": "594mm", "comment": "A2" },
+  "size": { "width": "297mm", "height": "420mm", "comment": "A3 but should be A2(?)" },
   "resolution": { "width": 840, "height": 1188, "comment": "2x pageSize in mm" },
   "cardsize": { "width": 184, "height": 118, "comment": "2* standard Euro size in mm" },
   "innermargin": 40,
