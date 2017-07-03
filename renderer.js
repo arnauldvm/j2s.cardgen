@@ -18,20 +18,21 @@ ipc.on('failed-pdf', function (event, error) {
 });
 
 const cleanUp = function() {
-  const elements = document.getElementsByClassName("disposable");
-  while (elements.length > 0) elements[0].remove();
-}
+  const div = document.getElementById('drawing');
+  while (div.hasChildNodes()) {
+    div.removeChild(div.lastChild);
+  }
+  return div;
+};
 
 const displayCards = function() {
-  cleanUp();
+  const div = cleanUp();
   const cardDescriptions = require("./data/cards.json");
   const card = require('./assets/card');
-  const div = document.getElementById('drawing');
   const params = cardDescriptions.parameters;
   cardDescriptions.cards.forEach(function(cardDescription) {
     for (let idx=0; idx<cardDescription.count; idx++) {
       const canvas = document.createElement('canvas');
-      canvas.classList.add('disposable');
       canvas.classList.add('card_frame');
       Object.assign(canvas.style, params.size);
       Object.assign(canvas, params.resolution);
@@ -49,7 +50,7 @@ const displayCards = function() {
 document.getElementById('cardsBtn').addEventListener('click', displayCards);
 
 displayBoard = function() {
-  cleanUp();
+  const div = cleanUp();
   addMessage("Cards displayed");
 };
 
