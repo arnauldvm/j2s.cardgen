@@ -26,7 +26,7 @@ const displayCards = function() {
   cleanUp();
   const cardDescriptions = require("./data/cards.json");
   const card = require('./assets/card');
-  const div = document.getElementById('cards');
+  const div = document.getElementById('drawing');
   const params = cardDescriptions.parameters;
   cardDescriptions.cards.forEach(function(cardDescription) {
     for (let idx=0; idx<cardDescription.count; idx++) {
