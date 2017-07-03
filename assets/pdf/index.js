@@ -15,7 +15,7 @@ module.exports.save = function(options, callback /* (pdfFilepath, error) */) {
     fs.mkdir(options.dirpath, (error) => {
       if (!error) resolve();
       else if (error.code === "EEXIST") resolve();
-      else reject(error.message);
+      else reject(error);
     });
   });
 
@@ -26,7 +26,7 @@ module.exports.save = function(options, callback /* (pdfFilepath, error) */) {
       filters: [{name: "PDF", extensions: ["pdf"]}]
     }, (filepath) => {
       if (filepath) resolve(filepath);
-      else reject("No file path selected, abort.");
+      else reject(new Error("No file path selected, abort."));
     });
   }));
   
