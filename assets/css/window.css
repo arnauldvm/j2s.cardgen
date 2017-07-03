@@ -33,7 +33,7 @@
 }
 
 @media print {
-  body > :not(#cards) {
+  body > :not(#drawing) {
     display: none;
   }
 }
