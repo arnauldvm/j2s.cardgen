@@ -53,8 +53,22 @@ const displayCards = function() {
 
 document.getElementById('cardsBtn').addEventListener('click', displayCards);
 
+const Board = require('./assets/board');
 displayBoard = function() {
   const div = cleanUp();
+  const boardDescriptions = require("./data/board.json");
+  const params = boardDescriptions.parameters;
+  pdfOptions.name = params.defaultPdfName;
+  pdfOptions.pageSize = params.pdfPageSize;
+  const canvas = document.createElement('canvas');
+  Object.assign(canvas.style, params.size);
+  Object.assign(canvas, params.resolution);
+  if (!canvas.getContext) {
+    alert("Canvas unsupported");
+    return;
+  }
+  Board.draw(canvas.getContext('2d'), params, boardDescriptions);
+  div.appendChild(canvas);
   addMessage("Board displayed");
 };
 

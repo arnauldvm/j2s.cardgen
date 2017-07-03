@@ -1,0 +1,25 @@
+{
+"parameters" : {
+  "pdfPageSize": "A3",
+  "defaultPdfName": "board",
+  "size": { "width": "420mm", "height": "594mm", "comment": "A2" },
+  "resolution": { "width": 840, "height": 1188, "comment": "2x pageSize in mm" },
+  "cardsize": { "width": 184, "height": 118, "comment": "2* standard Euro size in mm" },
+  "innermargin": 40,
+  "spacing": 12,
+  "font": "22px Helvetica sansserif",
+  "colors": [ "moccasin", "lightblue" ]
+},
+"cards": [
+  { "position": { "x": -1, "y":  1 }, "label": "Attaquant gauche" },
+  { "position": { "x":  0, "y":  1 }, "label": "Attaquant centre" },
+  { "position": { "x":  1, "y":  1 }, "label": "Attaquant droit" },
+  { "position": { "x": -1, "y":  0 }, "label": "Milieu gauche" },
+  { "position": { "x":  0, "y":  0 }, "label": "Milieu centre" },
+  { "position": { "x":  1, "y":  0 }, "label": "Milieu droituche" },
+  { "position": { "x": -1, "y": -1 }, "label": "Défenseur gauche" },
+  { "position": { "x":  0, "y": -1 }, "label": "Défenseur centre" },
+  { "position": { "x":  1, "y": -1 }, "label": "Défenseur droit" },
+  { "position": { "x":  0, "y": -2 }, "label": "Goal" }
+]
+}
