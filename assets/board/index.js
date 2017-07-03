@@ -22,7 +22,6 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, board
                     } else {
                         ctx.translate(0, -(params.spacing+CARD_HEIGHT)/2);
                     }
-console.log(params.colors[half]);
                     ctx.beginPath()
                     ctx.fillStyle = params.colors[half];
                     ctx.rect(-CARD_WIDTH/2, -CARD_HEIGHT/2, CARD_WIDTH, CARD_HEIGHT);
