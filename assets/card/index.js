@@ -127,7 +127,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   const RIGHT_WIDTH = UTIL_WIDTH - RIGHT_X;
 
   // Picture
-  Image.draw(ctx, cardDescription.picture, LEFT_WIDTH, LOW_HEIGHT, true);
+  Image.draw(ctx, cardDescription.picture, LEFT_WIDTH, LOW_HEIGHT, true, true);
 
   // Low Right
   ctx.save(); {
