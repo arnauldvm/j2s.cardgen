@@ -34,36 +34,6 @@ const drawGrid = function(/* CanvasRenderingContext2D */ ctx, /* String of [0-9]
   return 4/3;
 }
 
-const context = require('../context');
-
-const drawImage = function(/* CanvasRenderingContext2D */ ctx, /* string */ imgUrl, width, height, /* boolean */ hasBorder) {
-  // (saving the context, since it will likely have changed by the time the image is actually drawn
-  //  (because of async loading))
-  const curContext = new context.SavedContext(ctx);
-  const img = new Image();
-  img.addEventListener('load', function() {
-    const saveContext = new context.SavedContext(ctx);
-    curContext.restoreIn(ctx);
-    const imgRatio = img.height/img.width;
-    const targetRatio = height/width;
-    let x = 0;
-    let y = 0;
-    let w = width;
-    let h = height;
-    if (imgRatio>targetRatio) {
-      w = height/imgRatio;
-      x = (width-w)/2;
-    } else {
-      h = width*imgRatio;
-      y = (height-h)/2;
-    }
-    ctx.drawImage(img, x, y, w, h);
-    if (hasBorder) ctx.strokeRect(0, 0, width, height);
-    saveContext.restoreIn(ctx);
-  }, false);
-  img.src = imgUrl;
-}
-
 const textHeight = function(/* CanvasRenderingContext2D */ ctx, /* string */ text) {
   const textMeasure = ctx.measureText(text);
   return (textMeasure.actualBoundingBoxAscent + textMeasure.actualBoundingBoxDescent);
@@ -103,6 +73,8 @@ const justify = function(/* CanvasRenderingContext2D */ ctx, width, /* string */
   });
   return lines;
 }
+
+const Image = require('../image');
 
 module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardDescription) {
   const MARGIN = params.margin;
@@ -155,7 +127,7 @@ module.exports.draw = function(/* CanvasRenderingContext2D */ ctx, params, cardD
   const RIGHT_WIDTH = UTIL_WIDTH - RIGHT_X;
 
   // Picture
-  drawImage(ctx, cardDescription.picture, LEFT_WIDTH, LOW_HEIGHT, true);
+  Image.draw(ctx, cardDescription.picture, LEFT_WIDTH, LOW_HEIGHT, true);
 
   // Low Right
   ctx.save(); {
