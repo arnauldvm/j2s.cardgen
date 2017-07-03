@@ -48,3 +48,9 @@ const displayCards = function() {
 
 document.getElementById('cardsBtn').addEventListener('click', displayCards);
 
+displayBoard = function() {
+  cleanUp();
+  addMessage("Cards displayed");
+};
+
+document.getElementById('boardBtn').addEventListener('click', displayBoard);
