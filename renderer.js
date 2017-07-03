@@ -25,7 +25,7 @@ const cleanUp = function() {
   return div;
 };
 
-const card = require('./assets/card');
+const Card = require('./assets/card');
 const displayCards = function() {
   const div = cleanUp();
   const cardDescriptions = require("./data/cards.json");
@@ -40,7 +40,7 @@ const displayCards = function() {
         alert("Canvas unsupported");
         break;
       }
-      card.draw(canvas.getContext('2d'), params, cardDescription);
+      Card.draw(canvas.getContext('2d'), params, cardDescription);
       div.appendChild(canvas);
     }
   });
