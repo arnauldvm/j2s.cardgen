@@ -41,11 +41,15 @@ module.exports.save = function(options, callback /* (pdfFilepath, error) */) {
     });
   }));
 
-  renderPromise.then(([data, filepath]) => {
+  const writePromise = renderPromise.then(([data, filepath]) => new Promise((resolve, reject) => {
     fs.writeFile(filepath, data, (error) => {
-      if (error) callback(undefined, error);
-      else callback(filepath, undefined);
+      if (error) reject(error);
+      else resolve(filepath);
     });
-  });
+  }));
+
+  writePromise
+  .then((filepath) => callback(filepath, undefined))
+  .catch((error) => callback(undefined, error));
     
 };
