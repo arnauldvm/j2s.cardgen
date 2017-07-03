@@ -51,7 +51,7 @@ document.getElementById('cardsBtn').addEventListener('click', displayCards);
 
 displayBoard = function() {
   const div = cleanUp();
-  addMessage("Cards displayed");
+  addMessage("Board displayed");
 };
 
 document.getElementById('boardBtn').addEventListener('click', displayBoard);
