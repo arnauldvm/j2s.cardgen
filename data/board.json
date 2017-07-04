@@ -13,14 +13,14 @@
 },
 "cards": [
   { "position": { "x": -1, "y":  1 }, "label": "Attaquant gauche" },
-  { "position": { "x":  0, "y":  1 }, "label": "Attaquant centre" },
+  { "position": { "x":  0, "y":  1 }, "label": "Attaquant de pointe" },
   { "position": { "x":  1, "y":  1 }, "label": "Attaquant droit" },
   { "position": { "x": -1, "y":  0 }, "label": "Milieu gauche" },
-  { "position": { "x":  0, "y":  0 }, "label": "Milieu centre" },
-  { "position": { "x":  1, "y":  0 }, "label": "Milieu droituche" },
+  { "position": { "x":  0, "y":  0 }, "label": "Milieu central" },
+  { "position": { "x":  1, "y":  0 }, "label": "Milieu droit" },
   { "position": { "x": -1, "y": -1 }, "label": "Défenseur gauche" },
-  { "position": { "x":  0, "y": -1 }, "label": "Défenseur centre" },
+  { "position": { "x":  0, "y": -1 }, "label": "Défenseur central" },
   { "position": { "x":  1, "y": -1 }, "label": "Défenseur droit" },
-  { "position": { "x":  0, "y": -2 }, "label": "Goal" }
+  { "position": { "x":  0, "y": -2 }, "label": "Gardien de but" }
 ]
 }
