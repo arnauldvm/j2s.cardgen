@@ -40,3 +40,9 @@ Developer's notes
 * the `context.SavedContext` class will work only if `experimentalCanvasFeatures` are activated
   - might be removed in the future
   - should this be ported as a web app, the flag would need to be changed manually in the browser!
+
+Other interesting projects / articles
+-------------------------------------
+
+* How to Prototype a Card Game: http://brandoncarbaugh.com/2015/10/02/how-to-prototype-a-card-game/
+* Cardmaker: https://github.com/nhmkdev/cardmaker
